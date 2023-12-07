@@ -8,17 +8,38 @@ const answerSection = document.getElementById("answer-section");
 const submitBtn = document.getElementById("submit-btn");
 
 //Functions
+
 async function quizData() {
   const response = await fetch("./data.json");
   const data = await response.json();
-  console.log(data);
+  let topics = data.quizzes;
+  console.log(topics);
+  for (let topic of topics) {
+    console.log(topic);
+    if (topic.title === "HTML") {
+      htmlTopic.addEventListener("click", function () {
+        pageUpdate(topic);
+      });
+    } else if (topic.title === "CSS") {
+      cssTopic.addEventListener("click", function () {
+        pageUpdate(topic);
+      });
+    } else if (topic.title === "JavaScript") {
+      jsTopic.addEventListener("click", function () {
+        pageUpdate(topic);
+      });
+    } else if (topic.title === "Accessibility") {
+      accessTopic.addEventListener("click", function () {
+        pageUpdate(topic);
+      });
+    }
+  }
 }
-let quiz = quizData();
-
+quizData();
 function pageUpdate(user) {
   quizTopic.innerHTML = `
-  <img src="assets/images/icon-${user}.svg" alt="${user}" />
-  <h3>HTML</h3>
+  <img src=${user.icon} alt="${user.title}" />
+  <h3>${user.title}</h3>
   `;
 
   questionSection.innerHTML = `
@@ -38,4 +59,12 @@ function pageUpdate(user) {
     </button>
   `;
 }
-// htmlTopic.addEventListener("click");
+// htmlTopic.addEventListener("click", function () {
+//   quizData(html);
+// });
+// cssTopic.addEventListener("click", function () {
+//   quizData(css);
+// });
+// jsTopic.addEventListener("click", function () {
+//   quizData();
+// });
