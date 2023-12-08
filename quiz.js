@@ -13,36 +13,36 @@ export default function pageUpdate(user) {
   let currentIndex = 0;
   let score = 0;
   function startQuiz() {
-    answerSection.innerHTML = "";
     currentIndex = 0;
     score = 0;
     showQuestion();
   }
   function showQuestion() {
+    answerSection.innerHTML = ``;
     let currentQuestion = questions[currentIndex];
     let questionNo = currentIndex + 1;
     questionSection.innerHTML = `
   <p>Question ${questionNo} of ${questions.length}</p>
   <h2>${currentQuestion.question}</h2>
   <div class='progress-bar'>
-  <div class='progress'></div>
+  <div class='progress' id='progress'></div>
   </div>
   `;
+    const progress = document.getElementById("progress");
+
     let currentAnswers = currentQuestion.options;
-    // console.log(currentAnswers);
+    let answerText = "";
+    for (let i = 0; i < currentAnswers.length; i++) {
+      answerText += `<button id='options' class='options' value="${
+        currentAnswers[i]
+      }"><span class='option' >${
+        i === 0 ? "A" : i === 1 ? "B" : i === 2 ? "C" : "D"
+      }</span>${currentAnswers[i].replace(/(<([^>]+)>)/gi, "")}</button>`;
+      answerSection.innerHTML =
+        answerText +
+        "<button class='answer-btn submit-btn disabled' id='submit-btn'>Submit Answer</button>";
+    }
 
-    answerSection.innerHTML = `
-      <button id="options" class='options'  value="${currentAnswers[0]}"> <span class="option" >A</span> ${currentAnswers[0]} </button>
-
-      <button id="option2" class='options' value="${currentAnswers[1]}"> <span class="option" >B</span> ${currentAnswers[1]} </button>
-
-      <button id="option3" class='options' value="${currentAnswers[2]}"> <span class="option">C</span> ${currentAnswers[2]} </button>
-
-      <button id="option4" class='options' value="${currentAnswers[3]}"> <span class="option"  >D</span> ${currentAnswers[3]} </button>
-      <button class="answer-btn submit-btn disabled" id="submit-btn">
-          Submit Answer
-      </button>
-    `;
     const submitBtn = document.getElementById("submit-btn");
     const optionsArray = document.querySelectorAll(".options");
 
@@ -63,34 +63,38 @@ export default function pageUpdate(user) {
         submitBtn.classList.add("disabled");
       });
 
+      let currentValue = "";
       let currentTarget = "";
+      let currentText = "";
       option.addEventListener("click", function (e) {
+        currentValue = e.target.value;
+        currentText = e.target.firstChild;
         currentTarget = e.target;
-        return currentTarget;
-      });
+        submitBtn.addEventListener("click", function () {
+          if (currentValue === currentQuestion.answer) {
+            currentTarget.classList.add("correct");
+            currentText.classList.add("correctFocus");
+            score++;
+            console.log(score);
+          } else if (currentValue !== currentQuestion.answer) {
+            currentTarget.classList.add("wrong");
+            currentText.classList.add("wrongFocus");
+          }
 
-      submitBtn.addEventListener("click", function () {
-        console.log(currentTarget);
+          submitBtn.innerText = "Next Question";
+          if (submitBtn.innerText === "Next Question") {
+            submitBtn.classList.remove("disabled");
+            submitBtn.addEventListener("click", function () {
+              currentIndex = currentIndex + 1;
+              progress.style.width += "10%";
+
+              showQuestion();
+            });
+          }
+        });
       });
     }
-
-    // submitBtn.addEventListener;
   }
 
   startQuiz();
 }
-
-///Other option
-//  currentAnswers.forEach((answer) => {
-//    console.log(answer);
-
-//    const button = document.createElement("button");
-//    button.innerHTML = answer;
-//    button.classList.add("options");
-//    answerSection.appendChild(button);
-//  });
-//  const submitBtn = document.getElementById("submit-btn");
-//  answerSection.innerHTML += `
-//     <button class="answer-btn submit-btn disabled" id="submit-btn">
-//       Submit Answer
-//     </button>`;
