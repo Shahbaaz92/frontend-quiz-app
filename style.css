@@ -183,7 +183,7 @@ img[alt="accessibility"] {
   color: var(--Pure-White);
 }
 .disabled {
-  opacity: 0.8;
+  opacity: 0.5;
   cursor: not-allowed;
 }
 .options:focus {
@@ -205,4 +205,18 @@ img[alt="accessibility"] {
   height: 100%;
   background-color: var(--Purple);
   border-radius: 999px;
+}
+.correct {
+  border: 3px solid #26d782;
+}
+.correctFocus {
+  background-color: #26d782;
+  color: var(--Pure-White);
+}
+.wrong {
+  border: 3px solid #ee5454;
+}
+.wrongFocus {
+  background-color: #ee5454;
+  color: var(--Pure-White);
 }
