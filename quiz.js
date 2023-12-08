@@ -24,7 +24,7 @@ export default function pageUpdate(user) {
     let questionNo = currentIndex + 1;
     questionSection.innerHTML = `
   <p>Question ${questionNo} of ${questions.length}</p>
-  <h2>${currentQuestion.question}</h2>
+  <h2 class='h2Quiz'>${currentQuestion.question}</h2>
   <div class='progress-bar'>
   <div class='progress' id='progress'></div>
   </div>
