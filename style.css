@@ -142,7 +142,7 @@ button {
   justify-content: center;
   align-items: center;
 }
-.answer-btn:hover {
+button:hover {
   transform: scale(0.98);
 }
 
@@ -163,10 +163,31 @@ img[alt="javascript"] {
 img[alt="accessibility"] {
   background-color: rgba(167, 41, 245, 0.1);
 }
-span[class="option"] {
+.option {
   background-color: rgba(244, 246, 250, 1);
-  padding: 3px 6px;
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
   margin-right: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #626c7f;
+}
+.hover {
+  background-color: rgba(167, 41, 245, 0.1);
+  color: var(--Purple);
+}
+.focus {
+  background-color: var(--Purple);
+  color: var(--Pure-White);
+}
+.disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+.options:focus {
+  border: 3px solid var(--Purple);
 }
 .hidden {
   display: none;
