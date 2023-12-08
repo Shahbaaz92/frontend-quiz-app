@@ -118,6 +118,9 @@ button {
   flex-direction: column;
   justify-content: space-between;
 }
+.pick {
+  margin-bottom: 250px;
+}
 
 .answer-section {
   width: 50%;
