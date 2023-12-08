@@ -37,7 +37,7 @@ body::before {
 }
 main {
   width: 100%;
-  height: 100%;
+  height: 90vh;
   max-width: 1160px;
   display: flex;
   flex-direction: column;
@@ -109,6 +109,7 @@ button {
   display: flex;
   justify-content: start;
   align-items: start;
+  height: 100%;
 }
 .question-section {
   width: 50%;
@@ -118,6 +119,7 @@ button {
 }
 .answer-section {
   width: 50%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -127,7 +129,8 @@ button {
   display: flex;
   align-items: center;
   width: 100%;
-  padding: 10px;
+  height: 15%;
+  padding: 5px;
   font-size: 28px;
   text-align: left;
   border: none;
@@ -185,6 +188,10 @@ img[alt="accessibility"] {
 .disabled {
   opacity: 0.5;
   cursor: not-allowed;
+  transform: scale(1);
+}
+.disabled:hover {
+  transform: scale(1);
 }
 .options:focus {
   border: 3px solid var(--Purple);
@@ -219,4 +226,45 @@ img[alt="accessibility"] {
 .wrongFocus {
   background-color: #ee5454;
   color: var(--Pure-White);
+}
+
+.score-card {
+  display: flex;
+  flex-direction: column;
+  margin: 32px;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+.topic {
+  display: flex;
+  gap: 16px;
+  width: 50%;
+  height: auto;
+}
+.bigBox {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.bigBox span {
+  font-size: 144px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+.bigBox p {
+  font-style: normal;
+}
+.none {
+  border: none;
+  background-color: none;
+  color: #313e51;
+}
+
+@media screen and (max-width: 1200px) {
+  body {
+    background-color: #26d782;
+  }
 }

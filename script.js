@@ -7,7 +7,7 @@ const accessTopic = document.getElementById("accessibility");
 
 //Functions
 
-async function quizData() {
+export default async function quizData() {
   const response = await fetch("./data.json");
   const data = await response.json();
   let topics = data.quizzes;
