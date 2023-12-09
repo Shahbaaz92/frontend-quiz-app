@@ -1,10 +1,9 @@
-import quizData from "./script.js";
 const quizTopic = document.getElementById("quiz-topic");
 const questionSection = document.getElementById("question-section");
 const answerSection = document.getElementById("answer-section");
 
 //Functions
-export default function pageUpdate(user) {
+function pageUpdate(user) {
   quizTopic.innerHTML = `
   <img src=${user.icon} alt="${user.title}" />
   <h3>${user.title}</h3>`;
@@ -25,10 +24,11 @@ export default function pageUpdate(user) {
     questionSection.innerHTML = `
   <p>Question ${questionNo} of ${questions.length}</p>
   <h2 class='h2Quiz'>${currentQuestion.question}</h2>
-  <div class='progress-bar'>
+  <div class='progress-bar' id='progress-bar'>
   <div class='progress' id='progress'></div>
   </div>
   `;
+    const progressBar = document.getElementById("progress-bar");
     const progress = document.getElementById("progress");
     if (currentIndex) {
       let width = (currentIndex + 1) * 10 + "%";
@@ -45,13 +45,12 @@ export default function pageUpdate(user) {
       }</span>${currentAnswers[i].replace(/(<([^>]+)>)/gi, "")}</button>`;
       answerSection.innerHTML =
         answerText +
-        "<button class='answer-btn submit-btn disabled' id='submit-btn'>Submit Answer</button>";
+        "<button class=' submit-btn disabled' id='submit-btn'>Submit Answer</button>";
     }
 
     const submitBtn = document.getElementById("submit-btn");
     const optionsArray = document.querySelectorAll(".options");
     const optionsSpanArray = document.querySelectorAll(".option-span");
-    const buttons = document.getElementById("buttons");
 
     for (let option of optionsArray) {
       let child = option.children[0];
@@ -153,3 +152,5 @@ export default function pageUpdate(user) {
 
   startQuiz();
 }
+
+export { pageUpdate };

@@ -3,6 +3,7 @@
 :root {
   --Purple: #a729f5;
   --Pure-White: #ffffff;
+  --Dark-Navy: #313e51;
 }
 body,
 html,
@@ -22,26 +23,21 @@ body {
   color: #313e51;
   font-family: "Rubik", sans-serif;
   font-weight: 500;
+  background-image: url(assets/images/pattern-background-desktop-light.svg);
+  background-repeat: no-repeat;
+  background-position: 70% 30%;
 }
 
-body::before {
-  content: "";
-  position: absolute;
-  background: url(assets/images/pattern-background-desktop-light.svg) 0 0
-    no-repeat;
-  background-position: 70% 30%;
-  width: 100%;
-  height: 100vh;
-  z-index: -1;
-  transform: rotate(180deg);
+.dark-img {
+  background-image: url(assets/images/pattern-background-desktop-dark.svg);
 }
 main {
-  width: 100%;
-  height: 100vh;
+  width: 95%;
+  height: auto;
   max-width: 1160px;
   display: flex;
   flex-direction: column;
-  margin: 10px;
+  /* margin: 10px; */
 }
 
 h1 {
@@ -98,6 +94,9 @@ button {
   justify-content: start;
   align-items: center;
 }
+.toggle {
+  justify-content: end;
+}
 .toggle-btn {
   width: 20px;
   height: 20px;
@@ -127,6 +126,8 @@ button {
   height: 100%;
   display: flex;
   flex-direction: column;
+  /* align-items: flex-start; */
+  justify-content: flex-start;
   gap: 20px;
 }
 button {
@@ -134,7 +135,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: start;
-  width: 100%;
+  width: 95%;
   padding: 10px;
   font-size: 25px;
   text-align: left;
@@ -149,12 +150,14 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 24px;
+  padding: 20px;
 }
 button:hover {
   transform: scale(0.98);
 }
 
-button img {
+.answer-btn img {
   padding: 5px;
   margin-right: 32px;
   margin-left: 20px;
@@ -248,14 +251,16 @@ img[alt="accessibility"] {
   margin: 32px;
   align-items: center;
   justify-content: center;
-  gap: 32px;
 }
 .topic {
   display: flex;
   gap: 16px;
   width: 50%;
   height: auto;
+  align-items: center;
+  justify-content: center;
 }
+
 .bigBox {
   width: 100%;
   height: auto;
@@ -274,7 +279,7 @@ img[alt="accessibility"] {
 .none {
   border: none;
   background-color: none;
-  color: #313e51;
+  color: var(--Dark-Navy);
 }
 
 @media screen and (max-width: 1200px) {
@@ -285,9 +290,6 @@ img[alt="accessibility"] {
   .navbar {
     margin-bottom: 20px;
     padding: 20px;
-  }
-  .answer-section {
-    justify-content: center;
   }
 }
 @media screen and (max-width: 1000px) {
@@ -356,6 +358,19 @@ img[alt="accessibility"] {
   .quiz-topic {
     font-size: 18px;
   }
-  .options {
-  }
+}
+.dark-body {
+  background-color: var(--Dark-Navy);
+}
+.dark-text {
+  color: var(--Pure-White);
+}
+.dark-mode {
+  background-color: var(--Dark-Navy);
+  color: var(--Pure-White);
+}
+
+.dark-box {
+  background-color: #3b4d66;
+  color: yellowgreen;
 }

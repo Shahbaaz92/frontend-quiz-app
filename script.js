@@ -1,13 +1,19 @@
-import pageUpdate from "./quiz.js";
+import { pageUpdate } from "./quiz.js";
 
 const htmlTopic = document.getElementById("html");
 const cssTopic = document.getElementById("css");
 const jsTopic = document.getElementById("javascript");
 const accessTopic = document.getElementById("accessibility");
+const modeSwitch = document.getElementById("mode-switch");
+const topicBtns = document.querySelectorAll(".answer-btn");
+const toggleBox = document.getElementById("toggle-box");
+const answerSection = document.getElementById("answer-section");
+const questionSection = document.getElementById("question-section");
+const navbar = document.getElementById("navbar");
 
 //Functions
 
-export default async function quizData() {
+async function quizData() {
   const response = await fetch("./data.json");
   const data = await response.json();
   let topics = data.quizzes;
@@ -32,4 +38,15 @@ export default async function quizData() {
     }
   }
 }
+modeSwitch.addEventListener("click", function () {
+  navbar.classList.toggle("dark-text");
+  document.body.classList.toggle("dark-body");
+  questionSection.classList.toggle("dark-text");
+  topicBtns.forEach((btn) => {
+    btn.classList.toggle("dark-box");
+  });
+  toggleBox.classList.toggle("toggle");
+  document.body.classList.toggle("dark-img");
+});
+
 quizData();
