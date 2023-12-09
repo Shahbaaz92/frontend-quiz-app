@@ -107,7 +107,7 @@ button {
 }
 .hero {
   display: flex;
-  justify-content: start;
+  justify-content: space-between;
   align-items: start;
   height: 100%;
 }
@@ -172,11 +172,15 @@ img[alt="javascript"] {
 img[alt="accessibility"] {
   background-color: rgba(167, 41, 245, 0.1);
 }
-.option {
+.options {
+  display: flex;
+  /* justify-content: ; */
+}
+.option-span {
   background-color: rgba(244, 246, 250, 1);
   padding: 7.5px 15px;
   flex-shrink: 0;
-  margin-right: 32px;
+  margin-right: 20px;
   margin-left: 20px;
   display: flex;
   justify-content: center;
@@ -192,12 +196,15 @@ img[alt="accessibility"] {
   color: var(--Pure-White);
 }
 .disabled {
-  opacity: 0.5;
   cursor: not-allowed;
   transform: scale(1);
 }
+
 .disabled:hover {
   transform: scale(1);
+}
+.endImage {
+  margin-left: auto;
 }
 .options:focus {
   border: 3px solid var(--Purple);
@@ -276,5 +283,80 @@ img[alt="accessibility"] {
   }
   button {
     font-size: 20px;
+  }
+  .navbar {
+    margin-bottom: 20px;
+    padding: 20px;
+  }
+  .answer-section {
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 1000px) {
+  h1 {
+    font-size: 48px;
+  }
+}
+@media screen and (max-width: 750px) {
+  body {
+    overflow-x: hidden;
+  }
+  main {
+    padding: 50px auto;
+  }
+  .navbar {
+    margin-bottom: 50px;
+    padding: 30px;
+  }
+  .hero {
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .question-section {
+    width: 100%;
+    text-align: center;
+    background-color: #ee5454;
+    padding: 30px;
+  }
+  .question-section h2 {
+    margin-top: 27px;
+    margin-bottom: 40px;
+  }
+  .question-section * {
+    margin: 0;
+  }
+  .progress-bar {
+    width: 100%;
+  }
+
+  .answer-section {
+    width: 100%;
+    background-color: #ee5454;
+    align-items: center;
+    margin-bottom: 50px;
+    padding: 30px;
+  }
+  .answer-section button {
+    /* width: 80%; */
+
+    font-size: 28px;
+  }
+  .topic {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  h1 {
+    font-size: 40px;
+  }
+  h2,
+  button {
+    font-size: 20px;
+  }
+
+  .quiz-topic {
+    font-size: 18px;
   }
 }

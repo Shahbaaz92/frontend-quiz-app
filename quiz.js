@@ -40,7 +40,7 @@ export default function pageUpdate(user) {
     for (let i = 0; i < currentAnswers.length; i++) {
       answerText += `<button id='buttons' class='options' value="${
         currentAnswers[i]
-      }"><span class='option' >${
+      }"><span class='option-span' >${
         i === 0 ? "A" : i === 1 ? "B" : i === 2 ? "C" : "D"
       }</span>${currentAnswers[i].replace(/(<([^>]+)>)/gi, "")}</button>`;
       answerSection.innerHTML =
@@ -50,10 +50,14 @@ export default function pageUpdate(user) {
 
     const submitBtn = document.getElementById("submit-btn");
     const optionsArray = document.querySelectorAll(".options");
+    const optionsSpanArray = document.querySelectorAll(".option-span");
     const buttons = document.getElementById("buttons");
 
     for (let option of optionsArray) {
       let child = option.children[0];
+
+      option.addEventListener("click", function () {});
+
       option.addEventListener("mouseenter", function () {
         child.classList.add("hover");
       });
@@ -79,18 +83,28 @@ export default function pageUpdate(user) {
         currentTarget = e.target;
 
         submitBtn.addEventListener("click", function () {
+          for (let i = 0; i < optionsArray.length; i++) {
+            if (optionsArray[i].value === currentQuestion.answer) {
+              optionsArray[i].innerHTML += `
+              <img src="assets/images/icon-correct.svg" alt="correct" class='endImage'>
+              `;
+            }
+          }
           if (currentValue === currentQuestion.answer) {
             currentTarget.classList.add("correct");
             currentText.classList.add("correctFocus");
-
             isCorrect = true;
           } else if (currentValue !== currentQuestion.answer) {
             currentTarget.classList.add("wrong");
             currentText.classList.add("wrongFocus");
             isCorrect = false;
+            currentTarget.innerHTML += ` 
+              <img src="assets/images/icon-incorrect.svg" alt="correct" class='endImage'>   
+            `;
           }
 
           optionsArray.forEach((option) => {
+            option.setAttribute("disabled", true);
             option.classList.add("disabled");
             option.classList.remove("hover");
           });
@@ -112,7 +126,7 @@ export default function pageUpdate(user) {
 
               if (currentIndex === 10) {
                 questionSection.innerHTML = `
-                  <h1><span>Quiz Completed</span>You Scored</h1>
+                  <h1><span>Quiz Completed </br></span>You Scored</h1>
                 `;
                 answerSection.innerHTML = `
                 <div class=score-card>
