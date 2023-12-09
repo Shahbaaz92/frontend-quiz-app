@@ -10,6 +10,7 @@ const toggleBox = document.getElementById("toggle-box");
 const answerSection = document.getElementById("answer-section");
 const questionSection = document.getElementById("question-section");
 const navbar = document.getElementById("navbar");
+const scoreCard = document.getElementById("score-card");
 
 //Functions
 
@@ -42,6 +43,8 @@ modeSwitch.addEventListener("click", function () {
   navbar.classList.toggle("dark-text");
   document.body.classList.toggle("dark-body");
   questionSection.classList.toggle("dark-text");
+  answerSection.classList.toggle("dark-box-body");
+  scoreCard.classList.toggle("dark-box");
   topicBtns.forEach((btn) => {
     btn.classList.toggle("dark-box");
   });

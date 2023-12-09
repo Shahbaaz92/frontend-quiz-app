@@ -373,6 +373,9 @@ img[alt="accessibility"] {
 .dark-body {
   background-color: var(--Dark-Navy);
 }
+.dark-box-body {
+  background-color: #3b4d66;
+}
 .dark-text {
   color: var(--Pure-White);
 }

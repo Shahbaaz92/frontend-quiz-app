@@ -128,7 +128,7 @@ function pageUpdate(user) {
                   <h1><span>Quiz Completed </br></span>You Scored</h1>
                 `;
                 answerSection.innerHTML = `
-                <div class=score-card>
+                <div class='score-card' id='score-card'>
                 <div class='topic'>
                 <img src=${user.icon} alt="${user.title}"/>
                 <h3>${user.title}</h3>
