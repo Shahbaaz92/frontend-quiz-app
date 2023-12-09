@@ -79,7 +79,7 @@ button {
 }
 .quiz-topic {
   display: flex;
-  gap: 24px;
+  gap: 16px;
   align-items: center;
 }
 .mode-switch {
@@ -278,10 +278,8 @@ img[alt="accessibility"] {
 }
 
 @media screen and (max-width: 1200px) {
-  body {
-    background-color: #26d782;
-  }
-  button {
+  button,
+  .options {
     font-size: 20px;
   }
   .navbar {
@@ -314,9 +312,9 @@ img[alt="accessibility"] {
     align-items: center;
   }
   .question-section {
-    width: 100%;
+    width: 80%;
     text-align: center;
-    background-color: #ee5454;
+
     padding: 30px;
   }
   .question-section h2 {
@@ -331,17 +329,12 @@ img[alt="accessibility"] {
   }
 
   .answer-section {
-    width: 100%;
-    background-color: #ee5454;
+    width: 80%;
     align-items: center;
     margin-bottom: 50px;
     padding: 30px;
   }
-  .answer-section button {
-    /* width: 80%; */
 
-    font-size: 28px;
-  }
   .topic {
     width: 100%;
   }
@@ -352,11 +345,17 @@ img[alt="accessibility"] {
     font-size: 40px;
   }
   h2,
-  button {
+  button,
+  .options {
     font-size: 20px;
+  }
+  button {
+    padding: 5px;
   }
 
   .quiz-topic {
     font-size: 18px;
+  }
+  .options {
   }
 }
