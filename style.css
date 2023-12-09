@@ -304,30 +304,27 @@ img[alt="accessibility"] {
   .navbar {
     margin: 0;
     margin-bottom: 100px;
+    padding: 30px;
   }
   main {
     height: 100%;
     padding: 50px auto;
   }
-  .navbar {
-    margin-bottom: 50px;
-    padding: 30px;
-  }
+
   .hero {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
   }
   .question-section {
-    width: 80%;
+    width: 90%;
     text-align: center;
-
     padding: 30px;
   }
-  .question-section h2 {
+  /* .question-section h2 {
     margin-top: 27px;
     margin-bottom: 40px;
-  }
+  } */
   .question-section * {
     margin: 0;
   }
@@ -348,6 +345,15 @@ img[alt="accessibility"] {
 }
 
 @media screen and (max-width: 510px) {
+  .navbar,
+  .answer-section,
+  .question-section {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  .answer-section {
+    width: 100%;
+  }
   h1 {
     font-size: 40px;
   }
