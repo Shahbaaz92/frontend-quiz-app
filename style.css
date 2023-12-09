@@ -301,7 +301,11 @@ img[alt="accessibility"] {
   body {
     overflow-x: hidden;
   }
+  .navbar {
+    margin: 0;
+  }
   main {
+    height: 100%;
     padding: 50px auto;
   }
   .navbar {
@@ -372,5 +376,5 @@ img[alt="accessibility"] {
 
 .dark-box {
   background-color: #3b4d66;
-  color: yellowgreen;
+  color: var(--Pure-White);
 }
