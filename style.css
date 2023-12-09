@@ -303,6 +303,7 @@ img[alt="accessibility"] {
   }
   .navbar {
     margin: 0;
+    margin-bottom: 100px;
   }
   main {
     height: 100%;
